@@ -1,0 +1,1 @@
+ALTER TABLE "player_character" ADD COLUMN "max_hp" integer DEFAULT 10;

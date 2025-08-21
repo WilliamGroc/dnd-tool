@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-router build",
+    "build": "cross-env NODE_ENV=production react-router build && node vercel/prepare.js",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
@@ -11,11 +11,13 @@
     "migrate": "drizzle-kit migrate"
   },
   "dependencies": {
+    "@react-router/express": "^7.8.1",
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
     "bcryptjs": "^3.0.2",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.4",
+    "express": "^5.1.0",
     "isbot": "^5.1.27",
     "postgres": "^3.4.7",
     "react": "^19.1.0",
@@ -25,9 +27,11 @@
   "devDependencies": {
     "@react-router/dev": "^7.7.1",
     "@tailwindcss/vite": "^4.1.4",
+    "@types/express": "^5.0.3",
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "cross-env": "^10.0.0",
     "drizzle-kit": "^0.31.4",
     "tailwindcss": "^4.1.4",
     "tsx": "^4.20.4",
